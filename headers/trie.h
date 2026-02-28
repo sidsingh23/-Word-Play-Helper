@@ -6,7 +6,7 @@
 
 
 struct TrieNode {
-    std::unordered_map<char, TrieNode*> child;  // this should do "given char, point to next node in trie" but idk if works lol
+    std::unordered_map<char, TrieNode*> child;  // in our TrieNode "package", we got a endWord check and a map of its children
     bool endWord = false;
 };
 
@@ -21,7 +21,7 @@ public:
 
 private:
     TrieNode* root;
-    void deleteTrie(TrieNode* node);            // will delete the trie when no longer needed (program is over)
+    void deleteTrie(TrieNode* node);            // will delete the trie (from the bottom up) when no longer needed
 };
 
 #endif
