@@ -1,4 +1,7 @@
 #include "trie.h"
+#include <iostream>
+#include <fstream>
+#include <string>
 
 using namespace std;
 
@@ -36,14 +39,29 @@ bool Trie::isValid(const string& word) {
 }
 
 
-void Trie::loadDict(const string& filepath) {
-    //ifstream file(*C:///whatever.txt*);
-    //file.close()
+void Trie::loadDict(const string& filepath) {       // loading from filepath for now
+    ifstream file(filepath);
+    if(!file.is_open())
+    {
+        cout << "Error: Dictionary didn't load." << endl;
+        return;
+    }
+
+    string word;
+    while(getline(file, word))
+    {
+        addWord(word);
+    }
+    file.close();
 }
 
 
 void Trie::deleteTrie(TrieNode* node) {
-
+    for(auto& pack : node -> child)
+    {
+            deleteTrie(pack.second);
+    }
+    delete node;
 }
 
 
