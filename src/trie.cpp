@@ -1,4 +1,4 @@
-#include "trie.h"
+#include "../headers/trie.h"
 #include <iostream>
 #include <fstream>
 #include <string>
