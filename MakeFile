@@ -1,0 +1,12 @@
+CXX = g++
+CXXFLAGS = -Iheaders
+SRC = src/main.cpp src/trie.cpp
+OUT = wordplay
+
+build:
+	$(CXX) $(SRC) $(CXXFLAGS) -o $(OUT)
+
+clean:
+	rm -f $(OUT).exe
+
+rebuild: clean build
